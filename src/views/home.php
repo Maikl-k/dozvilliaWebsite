@@ -12,6 +12,7 @@
     <title>Dozvillia | Home page</title>
 </head>
 <body>
+    <?php include 'header.php'; ?>
     <div class="nav_section">
         <div class="search-bar">
             <form action="" method="GET" id="search-form">
