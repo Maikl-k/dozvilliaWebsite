@@ -26,3 +26,14 @@
     width: 200px;
     height: 50px;
 }
+
+.page-nav-links{
+    color: #FAF9F6;
+}
+
+.home-page-link-section{
+    display: flex;
+    justify-content: space-between;
+    margin: auto 20px;
+    margin-top: 30px;
+}

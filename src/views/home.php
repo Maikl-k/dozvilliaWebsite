@@ -25,5 +25,12 @@
             </form>
         </div>
     </div>
+    <div class="home-page-link-section">
+        <a class="page-nav-links" href="#">BEST MOVIES IN WORLD</a>
+        <a class="page-nav-links" href="#">BEST SERIALS IN WORLD</a>
+        <a class="page-nav-links" href="#">BEST PODCASTS IN WORLD</a>
+        <a class="page-nav-links" href="#">BEST BOOKS IN WORLD</a>
+        <a class="page-nav-links" href="#">LAST RECOMANDATIONS</a>
+    </div>
 </body>
 </html>
