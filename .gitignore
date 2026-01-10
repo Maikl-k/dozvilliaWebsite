@@ -1,0 +1,40 @@
+# Vendor directory (Composer dependencies)
+# This folder should be installed on the server, not committed to Git.
+/vendor/
+
+
+# Composer lock file (optional, many teams commit this for consistent installs)
+# Uncomment the next line if you do NOT want to commit the lock file
+# composer.lock
+
+# Environment variables and sensitive data
+# Do not commit credentials or server-specific configuration files.
+.env
+.env.local
+.env.*.php
+.env.php
+config/*.local.php
+
+
+# Log files and temporary data
+/logs/
+*.log
+/tmp/
+*.tmp
+
+
+# Database files (if using local SQLite)
+*.sqlite
+*.sqlite3
+
+
+# IDE and OS specific files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Build artifacts or compiled assets (if applicable)
+/build/
+/dist/
