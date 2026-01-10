@@ -2,10 +2,18 @@
 
 require_once  '../vendor/autoload.php';
 
+$loader = new \Twig\Loader\FilesystemLoader('../src/views');
+
+$twig = new \Twig\Environment($loader, [
+    'debug' => true,
+]);
+
 $route = new AltoRouter();
 
-$route->map('GET', '/', function(){
-    require '../src/views/home.php';
+$route->map('GET', '/', function() use($twig){
+    
+    echo $twig->render('home.html.twig');
+
 }, 'home');
 
 $match = $route->match();
