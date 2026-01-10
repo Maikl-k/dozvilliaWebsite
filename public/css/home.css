@@ -1,0 +1,28 @@
+
+.nav_section{
+    display: flex;
+    justify-content: center;
+}
+
+#search-bar{
+    color: #343231;
+    background-color: #FAF9F6;
+    padding: 12px;
+    
+}
+
+#search-image{
+    position: absolute;
+    width: 15%;
+    height: 65%;
+    top: 7%;
+    right: 0%;
+    z-index: 10;
+    display: block;
+}
+
+.form-items{
+    position: relative;
+    width: 200px;
+    height: 50px;
+}

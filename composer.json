@@ -14,5 +14,7 @@
             "email": "guyfhrtbe6v67btrtjhrtj@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "altorouter/altorouter": "^2.0"
+    }
 }
