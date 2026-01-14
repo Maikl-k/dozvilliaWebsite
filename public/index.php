@@ -10,11 +10,7 @@ $twig = new \Twig\Environment($loader, [
 
 $router = new AltoRouter();
 
-//$route->map('GET', '/', function() use($twig){
-    
-//    echo $twig->render('home.html.twig');
 
-//}, 'home');
 
 $routes = array(
     array('GET', '/', function() use($twig){
@@ -63,3 +59,4 @@ if($match && is_callable($match['target'])) {
 }else{
     header($_SERVER['SERVER_PROTOCOL'].'404 not found');
 }
+
