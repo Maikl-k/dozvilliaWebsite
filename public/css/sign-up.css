@@ -1,0 +1,21 @@
+#sign-up-form-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-up-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#date-of-birth, #user-password, #conf-password, #choosing-of-gender{
+    margin: 10px auto;
+
+}
+
+#choosing-of-gender{
+    display: flex;
+    align-items: center;
+}
