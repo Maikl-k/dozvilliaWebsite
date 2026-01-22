@@ -5,10 +5,10 @@ class DataBase {
 
     private $host = "localhost";
     private $user = "root";
-    private $password = "";
+    private $password = "1q2w3e4r5t!Q";
     private $databaseName = "dozvilliadb";
 
-    private function __construct(){
+    public function __construct(){
 
         $dns = 'mysql:host=' . $this->host . ";dbname=" . $this->databaseName;
         $options = [
