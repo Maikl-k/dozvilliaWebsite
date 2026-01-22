@@ -33,7 +33,7 @@ $routes = array(
         echo $twig->render('sign-up.html.twig');
     }, 'sign-up'),
 
-    array('GET', '/weclome', function() use($twig){
+    array('GET', '/welcome', function() use($twig){
         echo $twig->render('welcome.html.twig');
     }, 'welcome'),
 
