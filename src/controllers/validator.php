@@ -19,11 +19,11 @@ class Validator{
     public function validateForm(){
         foreach(self::$fields as $field){
             if(!array_key_exists($field, $this->data)){
-                $this->addError($field, "one of field not in form");
-                return;
+                return $this->addError($field, "one of field not in form");
+                
             }
         }
-
+        
         $this->validateLoginname();
         $this->validateFirstname();
         $this->validateLastname();
@@ -31,6 +31,7 @@ class Validator{
         $this->validategender();
         $this->validateDateOfBirth();
         $this->validatePasswords();
+        return $this->errors;
     }
 
 

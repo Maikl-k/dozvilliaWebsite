@@ -1,0 +1,3 @@
+php_value display_errors On
+php_value error_log /tmp/my_htaccess_error.log
+

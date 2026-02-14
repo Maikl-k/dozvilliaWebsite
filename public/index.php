@@ -1,8 +1,16 @@
 <?php
+// dev
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+// end dev
 
-require_once  '../vendor/autoload.php';
 
-$loader = new \Twig\Loader\FilesystemLoader('../src/views');
+
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$loader = new \Twig\Loader\FilesystemLoader( __DIR__ . '/../src/views');
 
 $twig = new \Twig\Environment($loader, [
     'debug' => true,
@@ -37,17 +45,22 @@ $routes = array(
         echo $twig->render('welcome.html.twig');
     }, 'welcome'),
 
-    array('GET', '/users/[*:user-name]', function() use($twig){
+    array('GET', '/users/[*:user_name]', function() use($twig){
         echo $twig->render('profile.html.twig');
     }, 'user-profile'),
 
-    array('GET', '/items/[*:item-name]', function() use($twig){
+    array('GET', '/items/[*:item_name]', function() use($twig){
         echo $twig->render('item.html.twig');
     }, 'item'),
 
     array('GET', '/watch-recomendation', function() use($twig){
         echo $twig->render('watch-recomendation.html.twig');
     }, 'watch-recomendation'),
+    array('POST', '/submit-signup-form', function(){
+        require_once __DIR__ . '/../src/controllers/signup_controller.php';
+    }, "/submit-signup-form"),
+
+    
 );
 
 $router->addRoutes($routes);
@@ -58,5 +71,6 @@ if($match && is_callable($match['target'])) {
     call_user_func_array($match['target'], $match['params']);
 }else{
     header($_SERVER['SERVER_PROTOCOL'].'404 not found');
+    die("<h1>Router Error</h1> No route matched for: " . $_SERVER['REQUEST_URI'] . " using " . $_SERVER['REQUEST_METHOD']); // dev
 }
 

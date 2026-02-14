@@ -137,7 +137,7 @@ form.addEventListener("submit", function(event){
     }
 
 
-    if(password === confPassword){
+    if(password != confPassword){
         isValid = false;
         errorMassage.push("password must = confirm password!")
     }
