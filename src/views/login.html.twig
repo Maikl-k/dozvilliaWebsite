@@ -9,6 +9,22 @@
 </head>
 <body>
     {% include 'header.html.twig' %}
+    <div class="main-section">
+        <div class="login-section">
+            <h2 class="title-of-login-form">Login</h2>
+            <div class="login-form">
+                <form action="/submit-login-form" method="POST" name="loginform" id="login-form-item">
+                    <label for="login-name">Login name</label>
+                    <input type="text" id="login-name" name="loginname" placeholder="enter your login name...">
 
+                    <label for="user-password">Password</label>
+                    <input type="password" id="user-password" name="userpassword" placeholder="enter your password...">
+
+                    <input type="submit" value="Login now">
+                    <p id="errors"></p>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,0 +1,14 @@
+.login-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-form-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#login-name, #user-password{
+    margin: 10px auto;
+}
