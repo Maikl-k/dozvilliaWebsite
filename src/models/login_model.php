@@ -26,18 +26,18 @@ class Logining{
         }
     }
 
-    public function gettingLoginCredentials($data){
+    public function getCredentialsFromLoginName($data){
 
         $db = new DataBase();
-        $loginingSql = "SELECT login_name, user_password FROM Users WHERE login_name = ?;";
+        $loginingSql = "SELECT user_first_name, user_last_name, login_name, user_password FROM Users WHERE login_name = ?;";
 
-        if($this->checkIfUserToLoginExists($data["loginname"]) == true){
 
             $stmt = $db->getConnection()->prepare($loginingSql);
 
             try{
                 $stmt->execute([$data["loginname"]]);
                 $credentials = $stmt->fetchAll();
+                return $credentials;
 
             }catch(PDOException $e){
                 //echo "something wrong code 500"; // not dev
@@ -45,31 +45,40 @@ class Logining{
                 echo "Query failed: " . $e->getMessage();
                 
             }
-            return $credentials;
+            
+            
 
-        }else{
-            return null;
-        }
+        
 
     }
 
-    public function checkingIfEnteringInWebsiteByCredentials($data){
-
-        $credentialsForEnter = $this->gettingLoginCredentials($data);
-
-        if($this->gettingLoginCredentials($data) != null){
-            if(password_verify($data["user-password"], $credentialsForEnter["user_password"])){
-                //good creddentials
+    public function checkPassword(){
+        $credentials = $this->getCredentialsFromLoginName($this->data);
+        
+        if(password_verify($this->data["userpassword"], $credentials[0]["user_password"])){ 
                 return true;
-            }else{
-                // user type wrong password
-                return "wrong password";
-            }
         }else{
-            // user type wrong login name
-            return "wrong login name";
+            return false;
         }
+
+        
     }
+
+    public function loginError(){
+
+        $_SESSION['login_error_message'] = "login not found";
+        header("Location: /login");
+        exit;
+    }
+
+    public function passwordError(){
+        $_SESSION['password_error_message'] = "wrong password";
+        header("Location: /login");
+        exit;
+    }
+
+
+    
 
 
 }

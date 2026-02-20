@@ -21,6 +21,9 @@
                     <input type="password" id="user-password" name="userpassword" placeholder="enter your password...">
 
                     <input type="submit" value="Login now">
+                    {% if session.login_error_message or session.password_error_message %}
+                    <p id="server-side-errors"> {{ session.login_error_message }} {{ session.password_error_message }}</p>
+                    {% endif %}
                     <p id="errors"></p>
                 </form>
             </div>

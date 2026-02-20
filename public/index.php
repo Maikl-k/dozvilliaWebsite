@@ -18,7 +18,9 @@ $twig = new \Twig\Environment($loader, [
 
 $router = new AltoRouter();
 
-
+if(session_status() == PHP_SESSION_NONE){
+            session_start();
+}
 
 $routes = array(
     array('GET', '/', function() use($twig){
@@ -33,7 +35,8 @@ $routes = array(
         echo $twig->render('about.html.twig');
     }, 'about'),
 
-    array('GET', '/login', function()use($twig){
+    array('GET', '/login', function() use($twig){
+        require_once __DIR__ . "/../src/controllers/login_controller.php";
         echo $twig->render('login.html.twig');
     }, 'login'),
 
@@ -45,7 +48,7 @@ $routes = array(
         echo $twig->render('welcome.html.twig');
     }, 'welcome'),
 
-    array('GET', '/users/[*:user_name]', function() use($twig){
+    array('GET', '/users/prifile', function() use($twig){
         echo $twig->render('profile.html.twig');
     }, 'user-profile'),
 
@@ -59,9 +62,19 @@ $routes = array(
     array('POST', '/submit-signup-form', function(){
         require_once __DIR__ . '/../src/controllers/signup_controller.php';
     }, "/submit-signup-form"),
+    array("POST", "/submit-login-form", function(){
+        require_once __DIR__ . "/../src/controllers/login_controller.php";
+    }, "submit-login-form"),
 
     
 );
+
+$twig->addGlobal("session", $_SESSION);
+
+if(isset($_SESSION['login_error_message']) || isset($_SESSION['password_error_message'])){
+    unset($_SESSION['login_error_message']);
+    unset($_SESSION['password_error_message']);
+}
 
 $router->addRoutes($routes);
 
