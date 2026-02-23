@@ -1,18 +1,18 @@
 ## Tech stack
 
-**-PHP 8.4**
-**-MYSQL 8.4**
-**-PDO**
-**-HTML**
-**-CSS**
-**-Javascript**
-**-composer 2.9**
+**-PHP 8.4**  
+**-MYSQL 8.4**  
+**-PDO**  
+**-HTML**  
+**-CSS**  
+**-Javascript**  
+**-composer 2.9**  
 
 ## How to run webiste locally
 
 You must insatll all necessary (PHP, MYSQL, Composer) and libraries such as:  
-**-twig**
-**-altorouter**  
+**-twig**  
+**-altorouter**    
 to install this you need do next steps:  
 ### Linux Ubuntu/Debian
 `sudo apt update && sudo apt install wget` resynchronize your local index files with the remote servers and install wget(if you do not have already).  
@@ -118,4 +118,4 @@ then go to root_directory/src/models/ and run UsersTable.php using next command:
 next run itemsTable.php using command `php itemsTable.php`
 
 To run webiste type in terminal in root folder `php -S localhost:8000 -t public/`  
-and go in browser to  localhost:8000
+and go in browser to  `localhost:8000`
