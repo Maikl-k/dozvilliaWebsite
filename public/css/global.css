@@ -2,3 +2,7 @@ body {
     background-color: #343231;
     color: #FAF9F6;
 }
+
+a:visited{
+    color:#2B4EFF;
+}
