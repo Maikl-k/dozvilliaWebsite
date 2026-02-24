@@ -19,12 +19,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 require_once __DIR__ . "/../models/session_model.php";
                 $userSession = new SessionManager();
                 $sessionName = $_POST["loginname"];
+                $userSession->set("loginned_in", true);
                 $userSession->set("userSessionName", $sessionName);
                 
-            
-                $userSession->set("userFirstName", $credentials["user_first_name"]);
-                $userSession->set("userLastName", $credentials["user_last_name"]);
-                header("Location: /users/prifile");
+
+                $userSession->set("userFirstName", $credentials[0]["user_first_name"]);
+                $userSession->set("userLastName", $credentials[0]["user_last_name"]);
+                $fullName = $credentials[0]["user_first_name"] . $credentials[0]["user_last_name"];
+                $fullnameUrl = urlencode($fullName);
+                $idUrl = urlencode($credentials[0]["user_id"]);
+                $user_email = $credentials[0]["user_email"];
+                $userSession->set("user_email", "$user_email");
+
+                header("Location: /users/" . $idUrl, true, 302);
+
+                $profileInfo = [
+                    'full_name' => $fullName,
+                    'email' => $user_email
+                ];
 
             }else{
                 // "wrong password";

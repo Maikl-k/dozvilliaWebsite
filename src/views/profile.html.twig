@@ -9,6 +9,9 @@
 </head>
 <body>
     {% include 'header.html.twig' %}
-
+    <div class="profile-info-s">
+    <p class="prfile-info-item"> {{ session.userFirstName }} {{ session.userLastName }}</p>
+    <p class="prfile-info-item"> {{ session.user_email }}</p>
+    </div>
 </body>
 </html>

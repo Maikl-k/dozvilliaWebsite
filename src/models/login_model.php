@@ -29,7 +29,7 @@ class Logining{
     public function getCredentialsFromLoginName($data){
 
         $db = new DataBase();
-        $loginingSql = "SELECT user_first_name, user_last_name, login_name, user_password FROM Users WHERE login_name = ?;";
+        $loginingSql = "SELECT user_id, user_email, user_first_name, user_last_name, login_name, user_password FROM Users WHERE login_name = ?;";
 
 
             $stmt = $db->getConnection()->prepare($loginingSql);

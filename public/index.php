@@ -48,9 +48,10 @@ $routes = array(
         echo $twig->render('welcome.html.twig');
     }, 'welcome'),
 
-    array('GET', '/users/prifile', function() use($twig){
+    array('GET', '/users/[i:id]', function($id) use($twig){
+        require_once __DIR__ . "/../src/controllers/login_controller.php";
         echo $twig->render('profile.html.twig');
-    }, 'user-profile'),
+    }, '/users/[i:id]'),
 
     array('GET', '/items/[*:item_name]', function() use($twig){
         echo $twig->render('item.html.twig');
@@ -80,7 +81,8 @@ $router->addRoutes($routes);
 
 $match = $router->match();
 
-if($match && is_callable($match['target'])) {
+
+if(is_array($match) && is_callable($match['target'])) {
     call_user_func_array($match['target'], $match['params']);
 }else{
     header($_SERVER['SERVER_PROTOCOL'].'404 not found');
