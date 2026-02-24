@@ -66,6 +66,9 @@ $routes = array(
     array("POST", "/submit-login-form", function(){
         require_once __DIR__ . "/../src/controllers/login_controller.php";
     }, "submit-login-form"),
+    array("GET", "/logout", function(){
+        require_once __DIR__ . "/../src/controllers/logout_controller.php";
+    }),
 
     
 );

@@ -10,15 +10,20 @@
 </head>
 <body>
     <div class="header-section">
-        <a href="#">
+        <a href="/">
             <img src="/images/logoDozvillia.png" alt="logo">
         </a>
         <a class="header-links">CREATE RECOMENDATION</a>
         <a class="header-links">WATCH RECOMENDATION</a>
         <a class="header-links">CREATE RECOMENDATION</a>
         <a class="header-links">ABOUT AS</a>
+        {% if not session.loginned_in  %}
         <a class="header-links" href="/sign-up" >SIGN UP</a>
         <a class="header-links" href="/login" >LOGIN</a>
+        {% else %}
+        <a class="header-links" href="/users/{{ session.userID }}">{{ session.userFirstName}} {{session.userLastName}}</a>
+        <a class="header-links" href="/logout">Logout</a>
+        {% endif %}
     </div>
 </body>
 </html>

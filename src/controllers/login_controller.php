@@ -30,13 +30,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $idUrl = urlencode($credentials[0]["user_id"]);
                 $user_email = $credentials[0]["user_email"];
                 $userSession->set("user_email", "$user_email");
-
+                $userSession->set("userID", $credentials[0]["user_id"]);
                 header("Location: /users/" . $idUrl, true, 302);
 
-                $profileInfo = [
-                    'full_name' => $fullName,
-                    'email' => $user_email
-                ];
+               
 
             }else{
                 // "wrong password";
