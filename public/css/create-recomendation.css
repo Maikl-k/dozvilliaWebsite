@@ -9,11 +9,16 @@
     align-items: center;
 }
 
-#nameofrec, #typeofrec, #itemimage, #descrofrec{
+#nameofrec, #typeofrec, #itemimage, #descrofrec, #previewimage{
     margin: 15px auto;
 }
 
 #itemimage{
     position:relative;
     left: 70px;
+}
+
+#previewimage{
+    display: none;
+    max-width: 300px;
 }
