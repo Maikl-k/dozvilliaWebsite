@@ -1,0 +1,19 @@
+.descrofrec{
+    field-sizing: content;
+    
+}
+
+.create-rec-form, #rec-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#nameofrec, #typeofrec, #itemimage, #descrofrec{
+    margin: 15px auto;
+}
+
+#itemimage{
+    position:relative;
+    left: 70px;
+}

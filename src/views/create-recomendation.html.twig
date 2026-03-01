@@ -9,6 +9,30 @@
 </head>
 <body>
     {% include 'header.html.twig' %}
+    <div class="creat-rec-section">
+        <div class="create-rec-form">
+            <h2 class="form-title">Create your recomendation</h2>
+            <form action="" method="POST" enctype="multipart/form-data" name="create-rec-form"  id="rec-form" required>
 
+                <input type="text" name="name-of-rec" id="nameofrec" placeholder="type name of recomendation..." required>
+
+                <select id="typeofrec" name="type-of-rec" required>
+                    <option value="" disabled selected hidden>-- Select an option --</option>
+                    <option value="movie">Movie</option>
+                    <option value="book">Book</option>
+                    <option value="serial">Serial</option>
+                    <option value="podcast">Podcast</option>
+                </select>
+                    
+                <input type="file" name="item-image" id="itemimage" accept="image/*" required>
+
+                <textarea id="descrofrec" name="descr-of-rec" placeholder="type description..." required ></textarea>
+
+                <input type="submit"  value="create recomendation now">
+
+                <p id="clien-side-validation-errors"></p>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
