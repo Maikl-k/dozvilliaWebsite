@@ -20,6 +20,25 @@ posterFileInput.addEventListener("change", function(event){
 })
 
 
+// set max date to to today of realease date
+const today = new Date
+    const year = today.getFullYear()
+    let month = today.getMonth() + 1
+    let day = today.getDate()
+
+    if(month < 10){
+        month = '0' + month
+    }
+
+    if(day < 10){
+        day = '0' + day
+    }
+    const todayFormatedDate = year + "-" + month + "-" + day
+    document.getElementById("releasedate").setAttribute("max", todayFormatedDate)
+
+// end of this
+
+
 
 const itemTitleMinLength = 2
 const itemTitleMaxLength = 60
@@ -48,6 +67,8 @@ createRecForm.addEventListener("submit", function(event){
     let titleOfItem = document.getElementById("nameofrec").value
 
     let inputSectionOfItem = document.getElementById("typeofrec").value
+
+    let realeseDate = document.getElementById("releasedate").value
     
     let imageOfItem = posterFileInput.files[0]
 
@@ -66,6 +87,12 @@ createRecForm.addEventListener("submit", function(event){
         cliensideErrors.push("invalid name of section choose one of next list " + itemsSection)
     }
 
+
+    // reselase date validation   
+    if(realeseDate > todayFormatedDate){
+        isValid = false
+        cliensideErrors.push("release date of released can not be in future")
+    }
 
 
     // input image validation

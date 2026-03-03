@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-#nameofrec, #typeofrec, #itemimage, #descrofrec, #previewimage{
+#nameofrec, #typeofrec, #itemimage, #descrofrec, #previewimage, #releasedate{
     margin: 15px auto;
 }
 
