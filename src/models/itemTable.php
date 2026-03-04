@@ -14,6 +14,7 @@ $itemTableSql = "CREATE TABLE IF NOT EXISTS Items(
                     item_description VARCHAR(2000) NOT NULL,
                     item_create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     item_change_date DATETIME,
+                    why_item_good VARCHAR(2000) NOT NULL,
                     Primary key (item_id, creator_id),
                     foreign key (creator_id) references Users(user_id)
                     );
