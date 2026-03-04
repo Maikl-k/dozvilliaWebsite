@@ -48,6 +48,9 @@ const itemsSection = ["movie", "book", "serial", "podcast"]
 const itemDescrMinLength = 3
 const itemDescrMaxLenght = 2000
 
+const whyItemGoodMaxLength = 2000
+const whyItemGoodMinLength = 3
+
 const maxSizeForBannerInKB = 1024
 
 
@@ -73,6 +76,8 @@ createRecForm.addEventListener("submit", function(event){
     let imageOfItem = posterFileInput.files[0]
 
     let descrOfItem = document.getElementById("descrofrec").value
+
+    let whyItemGood = document.getElementById("whyitemgood").value
 
 
     //title validation
@@ -115,6 +120,14 @@ createRecForm.addEventListener("submit", function(event){
         isValid = false
         cliensideErrors.push("invalid length of desrciption for item, valid is from " + itemDescrMinLength + " to " + itemDescrMaxLenght)
         
+    }
+
+
+    // why item is good validation
+    if(whyItemGood.length > whyItemGoodMaxLength || whyItemGood.length < whyItemGoodMinLength){
+        isValid = false
+        cliensideErrors.push("invalid length of why recomendation is good, must be from " + whyItemGoodMinLength + " to " + whyItemGoodMaxLength)
+
     }
 
 
