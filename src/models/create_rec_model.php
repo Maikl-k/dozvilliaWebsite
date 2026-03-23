@@ -44,7 +44,7 @@ class CreateRecomendation{
         $stmt = $db->getConnection()->prepare($addDataToDBSql);
 
         $stmt->execute([$_SESSION['userID'], $data['name-of-rec'], $data['type-of-rec'],
-                        $data['release-date'], $data['item-image'], $data['descr-of-rec'],
+                        $data['release-date'], $_FILES['item-image']["tmp_name"], $data['descr-of-rec'],
                         $data['why-item-good']]);
 
 

@@ -69,6 +69,9 @@ $routes = array(
     array("GET", "/logout", function(){
         require_once __DIR__ . "/../src/controllers/logout_controller.php";
     }),
+    array("POST", "/submit-cr-rec-form", function(){
+        require_once __DIR__ . "/../src/controllers/create_recomendation_controller.php";
+    }, "submit-create-recomendation-form"),
 
     
 );
